@@ -10,6 +10,9 @@ function App() {
   return (
     <>
       <div>
+        <header>
+          <h1 className='title'>Lista de tareas</h1>
+        </header>
         {number}
         <button onClick={changeNumber}>Cambia el número</button>
       </div>
