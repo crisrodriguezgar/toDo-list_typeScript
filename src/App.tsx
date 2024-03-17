@@ -1,22 +1,45 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import { ToDos } from "./components/ToDos";
 
-function App() {
-  const [number, setNumber] = useState<number>(5)
 
-  const changeNumber = () => {
-    setNumber(2)
+const mockTodos = [
+  {
+    id: "1",
+    title: "todo 1",
+    completed: false 
+  },
+  {
+    id: "2",
+    title: "todo 2",
+    completed: false 
+  },
+  {
+    id: "3",
+    title: "todo 3",
+    completed: false 
+  },
+]
+
+const App = (): JSX.Element => {
+
+  const [todos, setTodos] = useState(mockTodos)
+
+  const handleRemove = (id: string): void => {
+    const newTodos = todos.filter(todo => todo.id !== id)
+    setTodos(newTodos)
   }
+
   return (
-    <>
-      <div>
-        <header>
-          <h1 className='title'>Lista de tareas</h1>
-        </header>
-        {number}
-        <button onClick={changeNumber}>Cambia el número</button>
-      </div>
-    </>
+
+    <div className="todoapp">
+      <header>
+        <h1>Lista de tareas</h1>
+      </header>
+      <ToDos
+        todos={todos}
+        onRemoveTodo={handleRemove}
+      />
+    </div>
   )
 }
 
