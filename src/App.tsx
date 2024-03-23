@@ -51,18 +51,25 @@ const App = (): JSX.Element => {
   }
 
   const activeCount = todos.filter(todo => !todo.completed).length
-
   const completedCount = todos.length - activeCount
+
+  const filteredTodos = todos.filter(todo => {
+    if (filterSelected === TODO_FILTERS.ACTIVE) return !todo.completed;
+    if (filterSelected === TODO_FILTERS.COMPLETED) return todo.completed;
+    return todo; 
+  });
+  
+  
 
   return (
 
     <div className="todoapp">
       <header>
-        <h1>Lista de tareas</h1>
+        <h1 className="title">Lista de tareas</h1>
       </header>
       <ToDos
         onToggleCompletedTodo={handleCompleted}
-        todos={todos}
+        todos={filteredTodos}
         onRemoveTodo={handleRemove}
       />
       <Footer
@@ -70,7 +77,7 @@ const App = (): JSX.Element => {
         completedCount={completedCount}
         filterSelected={filterSelected}
         handleFilterChange={handleFilterChange}
-        onClearCompleted={()=>{}}
+        onClearCompleted={() => { }}
       />
 
     </div>
