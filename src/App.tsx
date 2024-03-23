@@ -5,18 +5,18 @@ import { ToDos } from "./components/ToDos";
 const mockTodos = [
   {
     id: "1",
-    title: "todo 1",
-    completed: false 
+    title: "Decirle a Dumbledore que tengo sueños raros",
+    completed: true
   },
   {
     id: "2",
-    title: "todo 2",
-    completed: false 
+    title: "Hacer Patronus",
+    completed: false
   },
   {
     id: "3",
-    title: "todo 3",
-    completed: false 
+    title: "Aprender Alohomora",
+    completed: false
   },
 ]
 
@@ -29,6 +29,19 @@ const App = (): JSX.Element => {
     setTodos(newTodos)
   }
 
+  const handleCompleted = (id: string, completed: boolean): void => {
+    const newTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed
+        }
+      }
+      return todo
+    })
+    setTodos(newTodos)
+  }
+
   return (
 
     <div className="todoapp">
@@ -36,6 +49,7 @@ const App = (): JSX.Element => {
         <h1>Lista de tareas</h1>
       </header>
       <ToDos
+        onToggleCompletedTodo={handleCompleted}
         todos={todos}
         onRemoveTodo={handleRemove}
       />

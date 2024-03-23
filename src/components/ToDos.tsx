@@ -4,10 +4,11 @@ import { ToDo } from "./ToDo";
 
 interface Props {
     todos: ListOfTodos;
+    onToggleCompletedTodo: (id: string, completed: boolean) => void
     onRemoveTodo: (id: string) => void;
 }
 
-export const ToDos: React.FC<Props> = ({ todos, onRemoveTodo }) => {
+export const ToDos: React.FC<Props> = ({ todos, onRemoveTodo, onToggleCompletedTodo }) => {
     return (
         <ul className="todo-list">
             {todos.map(todo => (
@@ -17,6 +18,7 @@ export const ToDos: React.FC<Props> = ({ todos, onRemoveTodo }) => {
                         title={todo.title}
                         completed={todo.completed}
                         onRemoveTodo={onRemoveTodo}
+                        onToggleCompletedTodo={onToggleCompletedTodo}
                     />
                 </li>
             ))}
