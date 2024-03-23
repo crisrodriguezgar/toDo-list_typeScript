@@ -203,9 +203,10 @@ header {
   background-color: #eceaea;
 }
 
-.todo-list li.completed label {
+.todo-list li.completed {
   color: #949494;
   text-decoration: line-through;
+  background-color: #eceaea;
 }
 
 .todo-list li .destroy {
