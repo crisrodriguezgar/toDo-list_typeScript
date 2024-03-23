@@ -62,7 +62,7 @@ const App = () => {
   const handleAddTodo = (title) => {
     const newTodo = {
       title,
-      id: Math.random().toString(36).substring(7),
+      id: crypto.randomUUID(),
       completed: false
     };
     const newTodos = [...todos, newTodo];
