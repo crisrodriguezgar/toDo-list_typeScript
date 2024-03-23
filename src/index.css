@@ -22,21 +22,8 @@ body {
   background-image: linear-gradient(90deg, #faaca8 10%, #ddd6f3 90%);
   color: #414142;
   min-width: 100px;
-  max-width: 450px;
+  max-width: 350px;
   margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  body {
-    min-width: 230px;
-    max-width: 650px;
-  }
-  .todoapp h1 {
-    font-size: 50rem;
-  }
-  .todo-list li {
-    font-size: 5rem;
-  }
 }
 
 .hidden {
@@ -57,7 +44,7 @@ body {
   color: rgba(0, 0, 0, 0.4);
 }
 
-header{
+header {
   display: flex;
   justify-content: center;
 }
@@ -78,7 +65,7 @@ header{
   position: relative;
   margin: 0;
   width: 100%;
-  font-size: 24px;
+  font-size: 20px;
   font-family: inherit;
   font-weight: inherit;
   line-height: 1.4em;
@@ -264,8 +251,9 @@ header{
   padding: 10px 15px;
   height: 20px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   border-top: 1px solid #e6e6e6;
+  text-align: center;
 }
 
 .footer:before {
@@ -311,6 +299,7 @@ header{
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 3px;
+  
 }
 
 .filters li a:hover {
@@ -361,6 +350,23 @@ html .clear-completed:active {
   margin-right: 2rem;
   color: #4d4d4d;
 }
+
 input:focus {
   outline: none;
+}
+
+@media (min-width: 768px) {
+  body {
+    min-width: 230px;
+    max-width: 650px;
+  }
+  .todoapp h1 {
+    font-size: 5rem;
+  }
+  .todo-list li {
+    font-size: 1.7rem;
+  }
+  .footer {
+    font-size: 14px;
+  }
 }
