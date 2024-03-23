@@ -13,7 +13,7 @@ export const ToDo: React.FC<Props> = ({ id, title, completed, onRemoveTodo, onTo
     type="checkbox"
     checked={completed}
     onChange={(event) => { 
-        onToggleCompletedTodo(id, event.target.checked); // Pasar id y completed por separado
+        onToggleCompletedTodo(id, event.target.checked);
     }}
 />
             <label htmlFor="">{title}</label>
