@@ -1,28 +1,47 @@
-import React from "react";
-import { type ListOfTodos } from "../types";
-import { ToDo } from "./ToDo";
+import { Todo } from './Todo'
+import type { Todo as TodoType } from '../types'
+import { useState } from 'react'
+
 
 interface Props {
-    todos: ListOfTodos;
-    onToggleCompletedTodo: (id: string, completed: boolean) => void
-    onRemoveTodo: (id: string) => void;
+  todos: TodoType[]
+  setCompleted: (id: string, completed: boolean) => void
+  setTitle: (params: Omit<TodoType, 'completed'>) => void
+  removeTodo: (id: string) => void
 }
 
-export const ToDos: React.FC<Props> = ({ todos, onRemoveTodo, onToggleCompletedTodo }) => {
-    return (
-        <ul className="todo-list">
-            {todos.map(todo => (
-                <li key={todo.id} className={`${todo.completed ? 'completed' : ''}`}>
-                    <ToDo
-                        id={todo.id}
-                        title={todo.title}
-                        completed={todo.completed}
-                        onRemoveTodo={onRemoveTodo}
-                        onToggleCompletedTodo={onToggleCompletedTodo}
-                    />
-                </li>
-            ))}
-        </ul>
-    )
-}
+export const Todos: React.FC<Props> = ({
+  todos,
+  setCompleted,
+  setTitle,
+  removeTodo
+}) => {
+  const [isEditing, setIsEditing] = useState('')
 
+  return (
+    <ul className='todo-list'>
+      {todos?.map((todo) => (
+        <li
+          key={todo.id}
+          onDoubleClick={() => { setIsEditing(todo.id) }}
+          className={`
+            ${todo.completed ? 'completed' : ''}
+            ${isEditing === todo.id ? 'editing' : ''}
+          `}
+        >
+          <Todo
+            key={todo.id}
+            id={todo.id}
+            title={todo.title}
+            completed={todo.completed}
+            setCompleted={setCompleted}
+            setTitle={setTitle}
+            removeTodo={removeTodo}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}

@@ -57,6 +57,11 @@ body {
   color: rgba(0, 0, 0, 0.4);
 }
 
+header{
+  display: flex;
+  justify-content: center;
+}
+
 .todoapp h1 {
   position: absolute;
   top: -140px;
@@ -65,6 +70,7 @@ body {
   text-align: center;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(221, 162, 213, 0.24);
+  margin-top: 5rem;
 }
 
 .new-todo,

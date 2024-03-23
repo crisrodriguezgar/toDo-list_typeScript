@@ -2,40 +2,41 @@ import { type FilterValue } from '../types'
 import { Filters } from './Filters'
 
 interface Props {
-	activeCount: number
-	completedCount: number
-	// completed: number
-	filterSelected: FilterValue
-	onClearCompleted: () => void
-	handleFilterChange: (filter: FilterValue) => void
+  handleFilterChange: (filter: FilterValue) => void
+  activeCount: number
+  completedCount: number
+  onClearCompleted: () => void
+  filterSelected: FilterValue
 }
 
 export const Footer: React.FC<Props> = ({
-	activeCount = 0,
-	completedCount = 0,
-	filterSelected,
-	handleFilterChange,
-	onClearCompleted,
+  activeCount,
+  completedCount,
+  onClearCompleted,
+  filterSelected,
+  handleFilterChange
 }) => {
-	return (
-		<footer className='footer'>
-			<span className='todo-count'>
-				<strong>{activeCount}</strong> Tareas
-			</span>
+  const singleActiveCount = activeCount === 1
+  const activeTodoWord = singleActiveCount ? 'Tarea' : 'Tareas'
 
-			<Filters
-				filterSelected={filterSelected}
-				onFilterChange={handleFilterChange}
-			/>
+  return (
+    <footer className="footer">
 
-			{completedCount > 0 && (
-				<button
-					className='clear-completed'
-					onClick={onClearCompleted}
-				>
-					<i className="fa-regular fa-trash-can fa-2xl trash"></i>
-				</button>
-			)}
-		</footer>
-	)
+      <span className="todo-count">
+        <strong>{activeCount}</strong> {activeTodoWord} {!singleActiveCount}
+      </span>
+
+      <Filters filterSelected={filterSelected} handleFilterChange={handleFilterChange} />
+
+      {
+        completedCount > 0 && (
+          <button
+            className="clear-completed"
+            onClick={onClearCompleted}>
+              <i className="fa-regular fa-trash-can fa-2xl trash"></i>
+          </button>
+        )
+      }
+    </footer>
+  )
 }
