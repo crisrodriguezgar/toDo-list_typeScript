@@ -32,7 +32,7 @@ body {
 
 .todoapp {
   background: #fff;
-  margin: 130px 0 40px 0;
+  margin: 130px 0 40px;
   position: relative;
   border-radius: 1.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -120,7 +120,7 @@ header {
   display: inline-block;
   font-size: 22px;
   color: #949494;
-  padding: 10px 27px 10px 27px;
+  padding: 10px 27px;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
@@ -254,7 +254,6 @@ header {
   text-align: center;
   font-size: 12px;
   border-top: 1px solid #e6e6e6;
-  text-align: center;
 }
 
 .footer:before {
