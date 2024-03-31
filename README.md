@@ -6,14 +6,13 @@ This is a web application to keep your ideas in order, create a to-do list. I ha
 
 ## 📋 Initial Requeriments
 
-- List all TODOs
-- Being able to delete an EVERYTHING
-- Mark EVERYTHING as completed
-- Add way to filter ALLs (Footer)
-- Show number of pending TODOs (Footer)
-- Add way to delete all completed TODOs
-- Create Header with input (Header)
-- Create a TODO (Header)
+- List all tasks
+- Be able to delete a task
+- Mark a task as completed
+- Add way to filter tasks
+- Show number of pending tasks
+- Add way to delete all completed tasks
+- Create Header with input to add tasks
  
 ## 🔨 Built with
 
