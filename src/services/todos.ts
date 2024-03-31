@@ -25,7 +25,7 @@ export const updateTodos = async ({ todos }: { todos: TodoList }): Promise<boole
   const res = await fetch(API_URL, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'todolist_typescript',
+      'Content-Type': 'application/json',
       'X-Master-Key': import.meta.env.VITE_API_BIN_KEY
     },
     body: JSON.stringify(todos)
