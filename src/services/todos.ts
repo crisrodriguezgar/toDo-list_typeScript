@@ -1,6 +1,6 @@
 import { type TodoList } from '../types'
 
-const API_URL = 'https://api.jsonbin.io/v3/b/63ff3a52ebd26539d087639c'
+const API_URL = 'https://api.jsonbin.io/v3/b/66097a41ad19ca34f8529d37'
 
 interface Todo {
   id: string
@@ -25,7 +25,7 @@ export const updateTodos = async ({ todos }: { todos: TodoList }): Promise<boole
   const res = await fetch(API_URL, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'todolist_typescript',
       'X-Master-Key': import.meta.env.VITE_API_BIN_KEY
     },
     body: JSON.stringify(todos)
