@@ -26,7 +26,7 @@ export const updateTodos = async ({ todos }: { todos: TodoList }): Promise<boole
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'X-Master-Key': "$2a$10$yZGDmYnAlRJiIoud9t/1wO4Q7oOMdM4CHsFvU4W9Q2hza2hU4xtUe"
+      'X-Master-Key':import.meta.env.VITE_API_BIN_KEY
     },
     body: JSON.stringify(todos)
   })
